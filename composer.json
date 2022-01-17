@@ -1,0 +1,26 @@
+{
+  "name": "pablognu/jokes",
+  "description": "Jokes for bash",
+  "authors": [
+    {
+      "name": "Pablo GNU",
+      "email": "pablo@lanzate.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Jokes\\": "src/Jokes/",
+      "App\\": "app/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "require": {
+    "vanilla/garden-cli": "^3.1"
+  }
+  ,
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  }
+}
