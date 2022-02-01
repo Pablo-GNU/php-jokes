@@ -17,7 +17,8 @@
     "optimize-autoloader": true
   },
   "require": {
-    "vanilla/garden-cli": "^3.1"
+    "vanilla/garden-cli": "^3.1",
+    "ext-yaml": "*"
   }
   ,
   "require-dev": {

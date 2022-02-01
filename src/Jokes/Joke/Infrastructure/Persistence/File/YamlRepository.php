@@ -13,13 +13,10 @@ use Jokes\Joke\Domain\JokeRepositoryInterface;
 class YamlRepository implements JokeRepositoryInterface
 {
 
-    private string $path;
-
     private array $jokes;
 
-    public function __construct(string $path)
+    public function __construct(private string $path)
     {
-        $this->path = $path;
         $this->readJokes();
     }
 
@@ -39,10 +36,13 @@ class YamlRepository implements JokeRepositoryInterface
 
     }
 
+    /**
+     * @throws \Exception
+     */
     public function getRandomJoke(): Joke
     {
         if(empty($this->jokes)){
-            throw new JokeNoJokeConfiguredException("You dont have any joke.sh configured");
+            throw new JokeNoJokeConfiguredException("You dont have any jokes configured");
         }
 
         return (new Joke(
@@ -50,14 +50,4 @@ class YamlRepository implements JokeRepositoryInterface
         ));
     }
 
-    public function findJoke(int $id): ?Joke
-    {
-        if(!array_key_exists($id, $this->jokes)){
-            return null;
-        }
-
-        return (new Joke(
-            new JokeContent($this->jokes[$id])
-        ));
-    }
 }

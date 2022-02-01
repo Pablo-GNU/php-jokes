@@ -5,15 +5,12 @@ namespace Jokes\Joke\Domain;
 
 final class JokeContent
 {
-    private string $content;
-
-    public function __construct(string $content)
+    public function __construct(private string $value)
     {
-        $this->content = $content;
     }
 
-    public function getContent(): string
+    public function value(): string
     {
-        return $this->content;
+        return $this->value;
     }
 }

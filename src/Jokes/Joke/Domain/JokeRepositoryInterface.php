@@ -6,5 +6,4 @@ namespace Jokes\Joke\Domain;
 
 interface JokeRepositoryInterface {
     public function getRandomJoke(): ?Joke;
-    public function findJoke(int $id): ?Joke;
 }

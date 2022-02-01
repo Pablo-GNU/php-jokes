@@ -9,14 +9,11 @@ use Jokes\Joke\Domain\JokeRepositoryInterface;
 
 class JokeReader
 {
-    private JokeRepositoryInterface $repository;
-
-    public function __construct(JokeRepositoryInterface $jokeRepository)
+    public function __construct(private JokeRepositoryInterface $repository)
     {
-        $this->repository = $jokeRepository;
     }
 
-    public function getJoke(): Joke
+    public function __invoke(): Joke
     {
         return $this->repository->getRandomJoke();
     }
